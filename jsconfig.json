@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@Animation/*": [
+        "./src/animations/*"
+      ],
+      "@Component/*": [
+        "./src/components/*"
+      ],
+      "@Libs/*": [
+        "./src/libs/*"
+      ],
+      "@Styles/*": [
+        "./src/styles/*"
+      ],
+      "@ThreeSketch/*": [
+        "./src/threesketch/*"
+      ],
+      "@Modules/*": [
+        "./src/modules/*"
+      ],
+      "@Systems/*": [
+        "./src/systems/*"
+      ],
+      "@Assets/*": [
+        "./src/assets/*"
+      ]
+    },
+    "allowJs": true
+  }
+}

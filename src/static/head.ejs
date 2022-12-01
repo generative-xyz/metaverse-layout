@@ -1,0 +1,35 @@
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+
+    <link rel="icon" href="assets/images/favicon.png" sizes="32x32">
+    <link rel="icon" href="assets/images/favicon.png" sizes="192x192">
+    <link rel="apple-touch-icon-precomposed" href="assets/images/favicon.png">
+    <meta name="msapplication-TileImage" content="assets/images/favicon.png">
+    <script>history.scrollRestoration = "manual"</script>
+    <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+    <link rel="canonical" href="<%= siteUrl %>">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="<%= title %>">
+    <meta property="og:description" content="<%= description %>">
+    <meta property="og:url" content="<%= siteUrl %>">
+    <meta property="og:site_name" content="<%= title %>">
+    <meta property="og:image" content="<%= screenshot %>">
+    <meta property="og:image:secure_url" content="<%= screenshot %>">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="<%= description %>">
+    <meta name="twitter:title" content="<%= title %>">
+    <meta name="twitter:image" content="<%= screenshot %>">
+    <link rel="shortlink" href="<%= siteUrl %>">
+    <style>
+        body:not(.site__template-mobile) .is-animation-loading {
+            opacity: 0;
+        }
+    </style>
+</head>

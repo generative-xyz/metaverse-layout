@@ -1,0 +1,22 @@
+.spacing {
+  display: block;
+
+  &__xl {
+    height: rem(120px);
+    @include pc {
+      height: rem(160px);
+    }
+  }
+
+  &__xxl {
+    height: rem(110px);
+
+    @include pc {
+      height: rem(160px);
+    }
+
+    @include pcWide {
+      height: rem(200px);
+    }
+  }
+}

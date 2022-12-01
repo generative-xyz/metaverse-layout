@@ -1,0 +1,260 @@
+.video {
+  &__player {
+    position: relative;
+    overflow: hidden;
+    //cursor: none;
+
+    &-wrap {
+      border: 1px solid $white;
+      border-radius: 50%;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+
+      //* {
+      //  cursor: none;
+      //}
+    }
+
+    &_btn {
+      position: absolute;
+      pointer-events: none;
+      z-index: 3;
+      top: 0;
+      left: 0;
+      font-size: rem(15px);
+      font-weight: 500;
+      text-transform: uppercase;
+      will-change: transform;
+      background: white;
+      border-radius: 50%;
+      border: none;
+      padding: 0 !important;
+      opacity: 0;
+
+      width: rem(80px);
+      height: rem(80px);
+
+      @include pc {
+        width: rem(120px);
+        height: rem(120px);
+      }
+
+      //* {
+      //  cursor: none;
+      //}
+    }
+
+    .btn {
+      &_inner {
+        width: 100%;
+        display: block;
+      }
+
+      &_text {
+        display: block;
+        text-align: center;
+        overflow: hidden;
+        line-height: 1;
+        position: relative;
+        width: 100%;
+        font-weight: bold;
+        letter-spacing: 0.01em;
+        text-transform: uppercase;
+        color: $white;
+
+        font-size: rem(10px);
+        margin-bottom: rem(7px);
+
+        @include pc {
+          font-size: rem(15px);
+          margin-bottom: rem(10px);
+        }
+
+        &_child {
+          display: block;
+
+          &:not(:nth-child(1)) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+          }
+        }
+      }
+
+      &_icon {
+        font-size: 0;
+        position: relative;
+        display: flex;
+        justify-content: center;
+
+        &_child {
+          display: block;
+
+          &:nth-child(2) {
+            position: absolute;
+            top: 0;
+            left: calc(50% - #{rem(5px)});
+
+            @include pc {
+              left: calc(50% - #{rem(8px)});
+            }
+            opacity: 0;
+          }
+
+          width: rem(10px);
+          height: rem(10px);
+
+          @include pc {
+            width: rem(16px);
+            height: rem(16px);
+          }
+        }
+      }
+    }
+  }
+
+  &__over {
+    overflow: hidden;
+    line-height: 0;
+    position: relative;
+    max-height: 100vh;
+
+    iframe {
+      width: 100%;
+      border-radius: rem(20px);
+      @include pc {
+        border-radius: rem(80px);
+      }
+    }
+
+    .over__layer--video {
+      position: absolute;
+      top: 0;
+      z-index: 2;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    video {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &_sound {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    cursor: default !important;
+    @include pc {
+      padding: rem(40px);
+    }
+    @include tablet {
+      padding: rem(10px);
+    }
+    @include mobile {
+      padding: rem(5px);
+    }
+  }
+
+  &_btnMute {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .4s $easeOutQuart;
+    background: none;
+    cursor: pointer !important;
+
+    @include pc {
+      height: rem(88px);
+      width: rem(88px);
+    }
+
+    @include tablet {
+      height: rem(38px);
+      width: rem(38px);
+    }
+
+    @include mobile {
+      height: rem(28px);
+      width: rem(28px);
+    }
+
+    &.is-ready {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &_bg {
+      background: rgba($white, .17);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      border-radius: 50%;
+    }
+
+    &_icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        @include tablet {
+          width: rem(12px);
+          height: auto;
+        }
+        @include mobile {
+          width: rem(10px);
+          height: auto;
+        }
+      }
+
+      &:nth-child(2) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+      }
+
+      &__sound {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.video__poster {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  z-index: 2;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.videoThumb {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+}

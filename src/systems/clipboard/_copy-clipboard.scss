@@ -1,0 +1,22 @@
+.link--copy-message {
+  font-size: rem(14px);
+  position: absolute;
+  background: $dark;
+  color: $white;
+  padding: rem(8px) rem(16px);
+  text-align: center;
+  border-radius: rem(4px);
+  opacity: 0;
+  pointer-events: none;
+  bottom: calc(100% + #{rem(5px)});
+
+  &.left {
+    right: 100%;
+    margin-right: 5px;
+  }
+
+  &.right {
+    margin-left: 5px;
+    left: 100%;
+  }
+}

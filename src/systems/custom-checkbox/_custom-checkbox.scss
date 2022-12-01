@@ -1,0 +1,142 @@
+/* iCheck plugin Minimal skin, blue
+----------------------------------- */
+
+.form-check-label {
+  user-select: none;
+  cursor: pointer;
+  display: flex;
+
+  &.disabled {
+    cursor: default !important;
+  }
+
+  &.has--error {
+    color: red;
+  }
+
+  span.label {
+    float: left;
+
+    @include media-breakpoint-up(sm) {
+      width: calc(100% - #{rem(50px)});
+    }
+    @include media-breakpoint-down(xs) {
+      width: calc(100% - #{rem(44px)});
+    }
+  }
+}
+
+.form-check {
+  margin-bottom: rem(15px);
+
+  .check-label--text {
+    margin-left: rem(15px);
+    position: relative;
+    font-size: 18px;
+    padding-top: 2px;
+  }
+
+  &--white {
+    .check-label--text {
+      color: $white;
+    }
+
+    .ht-checkbox {
+      background-image: url(public/icons/system/custom-checkbox-onio-white.svg) !important;
+    }
+  }
+}
+
+.form-radio {
+  .check-label--text {
+    margin-left: rem(15px);
+  }
+}
+
+.form-check-input {
+  pointer-events: none;
+  user-focus: none;
+  user-select: none;
+  visibility: hidden;
+  position: absolute;
+  opacity: 0;
+  z-index: -999;
+  left: 0
+}
+
+.ht-checkbox {
+
+  --size-checkbox: 30px;
+  padding: 0;
+  display: block;
+  width: var(--size-checkbox);
+  height: var(--size-checkbox);
+  background-image: url(public/icons/system/custom-checkbox-onio.svg);
+  background-repeat: no-repeat;
+  background-size: auto var(--size-checkbox);
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+
+}
+
+
+.ht-radio {
+
+  --size-radio: 24px;
+  padding: 0;
+  display: block;
+  width: var(--size-radio);
+  height: var(--size-radio);
+  background-image: url(public/icons/system/custom-radio.svg);
+  background-repeat: no-repeat;
+  background-size: auto var(--size-radio);
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+
+}
+
+.ht-checkbox {
+  background-position: calc((var(--size-checkbox) * -3) - 4px) 0;
+}
+
+.ht-checkbox.hover {
+  background-position: calc((var(--size-checkbox) * -4) - 5px) 0 !important;
+}
+
+.ht-checkbox.checked, .ht-checkbox[checked] {
+  background-position: -1px 0 !important;
+}
+
+.ht-checkbox.disabled, .ht-checkbox[disabled] {
+  background-position: calc((var(--size-checkbox) * -2) - 3px) 0 !important;
+  cursor: default !important;
+}
+
+.ht-checkbox.checked.disabled {
+  background-position: calc((var(--size-checkbox) * -1) - 2px) 0 !important;
+  cursor: default !important;
+}
+
+.ht-radio {
+  background-position: calc((var(--size-radio) * -3) - 6px) 0 !important;
+}
+
+.ht-radio.hover {
+  background-position: 0 0 !important;
+}
+
+.ht-radio.checked {
+  background-position: 0 0 !important;
+}
+
+.ht-radio.disabled {
+  background-position: calc((var(--size-radio) * -2) - 4px) 0 !important;
+  cursor: default;
+}
+
+.ht-radio.checked.disabled {
+  background-position: calc((var(--size-radio) * -1) - 2px) 0 !important;
+}
+

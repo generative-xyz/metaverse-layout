@@ -1,0 +1,67 @@
+.hr-row {
+  &:not(.no-padding) {
+    @include pc {
+      padding-left: vw(40px);
+      padding-right: vw(40px);
+    }
+
+    @include tablet {
+      padding-left: vw(16px, 768px);
+      padding-right: vw(16px, 768px);
+    }
+
+    @include mobile {
+      padding-left: vw(16px, 375px);
+      padding-right: vw(16px, 375px);
+    }
+  }
+
+  @include pc {
+    display: flex;
+    flex-shrink: 0;
+    will-change: transform;
+  }
+
+  &__100 {
+    @include pc {
+      height: 100vh;
+      align-items: normal;
+    }
+  }
+}
+
+.hr-col {
+  @include mobile{
+    margin-bottom: rem(80px);
+  }
+  @include tablet{
+    margin-bottom: rem(120px);
+  }
+}
+
+.hr-group {
+
+  @include pc {
+    display: flex;
+    flex-shrink: 0;
+  }
+}
+
+.hr-col__full-width {
+  width: 100vw;
+}
+
+
+// tat do dang su dung smoothscroll on mobile
+//.site__template-mobile {
+//  .hr-scroller_fixed {
+//    position: sticky;
+//    top: 0;
+//  }
+//}
+
+@include bodyPc{
+  .hr-scroller_fixed{
+    will-change: transform;
+  }
+}

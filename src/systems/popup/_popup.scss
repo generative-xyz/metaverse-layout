@@ -1,0 +1,205 @@
+body.popup--opening {
+  overflow: hidden;
+}
+
+.popup--main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
+
+  @include media-breakpoint-up(sm) {
+    padding-top: rem(140px);
+  }
+  @include media-breakpoint-down(xs) {
+    padding-top: 60px;
+  }
+
+  &-rollback {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgba(#000, .7);
+    top: 0;
+    left: 0;
+  }
+
+  &-body {
+    position: relative;
+    z-index: 2;
+    margin-left: auto;
+    margin-right: auto;
+    @include media-breakpoint-up(sm) {
+      padding: rem(50px) rem(25px);
+    }
+    @include media-breakpoint-down(xs) {
+      padding: rem(50px) rem(20px);
+    }
+
+    .h2 {
+      @include media-breakpoint-down(xs) {
+        font-size: rem(26px) !important;
+      }
+    }
+
+    @include media-breakpoint-up(xl) {
+      max-width: rem(928px);
+    }
+
+    @include media-breakpoint-only(lg) {
+      max-width: rem(690px);
+    }
+
+    @include media-breakpoint-between(sm, md) {
+      max-width: rem(644px);
+    }
+
+    &-content {
+      width: 100%;
+      position: relative;
+
+      &--wrap {
+        position: relative;
+      }
+
+      &.out--content {
+        transform: none;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    &-actions {
+      @include media-breakpoint-up(xl) {
+        margin-top: rem(64px);
+      }
+      @include media-breakpoint-only(lg) {
+        margin-top: rem(40px);
+      }
+      @include media-breakpoint-between(sm, md) {
+        margin-top: rem(30px);
+      }
+      @include media-breakpoint-down(xs) {
+        margin-top: rem(24px);
+      }
+    }
+  }
+
+  &__btn {
+    width: 100%;
+    font-weight: 500;
+    text-align: center;
+    box-shadow: none !important;
+    outline: none !important;
+    line-height: 1;
+    border: none;
+
+    @include media-breakpoint-up(xl) {
+      font-size: rem(20px);
+      padding: rem(18px) 0;
+    }
+    @include media-breakpoint-only(lg) {
+      font-size: rem(16px);
+      padding: rem(20px) 0;
+    }
+
+    @include media-breakpoint-between(sm, md) {
+      font-size: rem(13px);
+      padding: rem(16px) 0;
+    }
+
+    @include media-breakpoint-down(xs) {
+      font-size: rem(14px);
+      padding: rem(13px) 0;
+    }
+
+    &--text {
+      color: $green;
+      background: none;
+      transition: color .4s $easeOutQuart;
+      @media (any-hover: hover) {
+        &:hover {
+          color: $dark;
+        }
+      }
+    }
+
+    &--bg {
+      background-color: $dark;
+      color: $white;
+      border-radius: rem(2px);
+      transition: all .4s $easeOutQuart;
+      @media (any-hover: hover) {
+        &:hover {
+          background-color: $orange;
+        }
+      }
+    }
+  }
+
+  &--full {
+    .popup--main {
+      &-body {
+        width: 100%;
+        max-width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+        padding-bottom: 0;
+
+        > .container {
+          @include media-breakpoint-up(sm) {
+            padding-bottom: rem(120px);
+          }
+          @include media-breakpoint-down(xs) {
+            padding-bottom: 60px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.popupClose {
+  background: none !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  display: flex;
+  align-items: center;
+
+  &--white {
+    color: white;
+    line-height: 1;
+    @include media-breakpoint-up(sm) {
+      font-size: 20px;
+    }
+    @include media-breakpoint-down(xs) {
+      font-size: 15px;
+    }
+  }
+
+  &__text {
+    display: inline-block;
+
+    @include media-breakpoint-up(sm) {
+      margin-right: rem(20px);
+    }
+    @include media-breakpoint-down(xs) {
+      margin-right: 10px;
+    }
+  }
+
+  img {
+    @include media-breakpoint-down(xs) {
+      width: 23px;
+      height: 23px;
+    }
+  }
+}

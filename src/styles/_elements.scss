@@ -1,0 +1,57 @@
+html,
+body {
+  font-smoothing: antialiased !important;
+  -webkit-font-smoothing: antialiased !important;
+  line-height: 110%;
+  font-weight: normal;
+  color: $dark;
+  background: $white;
+  font-size: 16px;
+
+  @include tablet {
+    //font-size: vw(16px, 900px);
+    font-size: calcAuto(768px, 900px, 16px, 16px);
+  }
+
+  @include pc {
+    //font-size: vw(16px, 1366px);
+    font-size: calcAuto(1200px, 1366px, 14.85px, 16px);
+  }
+
+  @include pcWide {
+    font-size: vw(16px);
+  }
+
+  * {
+    user-select: none;
+  }
+
+}
+
+body {
+  &.is-locked {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+a {
+  text-decoration: none;
+  outline: none !important;
+  display: inline-block;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+button {
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+picture {
+  display: block;
+}

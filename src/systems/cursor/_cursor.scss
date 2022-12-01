@@ -1,0 +1,121 @@
+@mixin cursor-size() {
+  width: rem(80px);
+  height: rem(80px);
+
+  @include pc {
+    width: rem(120px);
+    height: rem(120px);
+  }
+}
+
+.cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  font-weight: 500;
+  text-transform: uppercase;
+  will-change: transform;
+  backface-visibility: hidden;
+
+  &:not(.is-ready) {
+    visibility: hidden;
+  }
+
+  &_drag {
+    position: relative;
+
+    &_arrows {
+      background: $white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+
+      @include cursor-size;
+
+
+      &_icons {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+        padding-left: rem(8px);
+        padding-right: rem(8px);
+
+        @include pc {
+          padding-left: rem(12px);
+          padding-right: rem(12px);
+        }
+
+        img {
+          @include fromTablet {
+            width: 18px;
+            height: 18px;
+          }
+        }
+      }
+    }
+
+    &_text {
+
+      @include cursor-size;
+
+      border-radius: 50%;
+      border: 2px solid $dark;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $dark;
+      position: absolute;
+      top: 0;
+      z-index: 1;
+      left: 0;
+      text-align: center;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 109%;
+      letter-spacing: -0.01em;
+      will-change: transform;
+      backface-visibility: hidden;
+      font-size: rem(14px);
+
+      @include pc {
+        font-size: rem(20px);
+      }
+    }
+  }
+}
+
+body:not(.site__template-mobile) {
+  .js-cursor_text, .js-cursor_link_icon {
+    will-change: transform;
+    display: block;
+  }
+
+  .cursor-none {
+    cursor: none !important;
+
+    * {
+      cursor: none !important;
+    }
+  }
+}
+
+
+.js-handler-cursor--view.cursor-none {
+  @include fromTablet {
+    cursor: default !important;
+    * {
+      cursor: default !important;
+    }
+  }
+}
+
+body.site__template-mobile {
+  .cursor {
+    display: none;
+  }
+}

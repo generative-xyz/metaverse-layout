@@ -1,0 +1,86 @@
+#gg--map {
+  @include media-breakpoint-up(sm) {
+    height: 800px;
+    max-height: 100vh;
+  }
+
+  @include media-breakpoint-down(xs) {
+    height: 600px;
+  }
+
+  .popup-bubble-gg-marker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -100%);
+    background-color: $white;
+    overflow-y: auto;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+    padding: rem(20px);
+    border-radius: rem(10px);
+    white-space: nowrap;
+    font-family: $font-family-sans-serif;
+
+    .popup-marker {
+      &__title {
+        font-weight: 600;
+        font-size: rem(24px);
+        line-height: 140%;
+        margin-bottom: rem(20px);
+      }
+
+      &__address,
+      &__phone,
+      &__link {
+        font-size: rem(14px);
+        line-height: 140%;
+        margin-bottom: rem(12px);
+
+        svg {
+          display: inline-block;
+          margin-right: rem(10px);
+        }
+      }
+
+      &__link {
+        margin-bottom: 0;
+        color: $blue;
+        text-decoration-line: underline;
+      }
+    }
+  }
+
+  .popup-bubble-anchor {
+    position: absolute;
+    width: 100%;
+    bottom: 8px;
+    left: 0;
+  }
+
+  .popup-bubble-gg-marker-anchor::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(
+                    45deg,
+                    rgba(255, 255, 255, 1) 50%,
+                    rgba(255, 255, 255, 0) 51%,
+                    rgba(255, 255, 255, 0) 100%
+    );
+    box-shadow: -2px 2px 2px 0 rgba(0, 0, 0, 0.05);
+    content: '';
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    width: rem(15px);
+    height: rem(15px);
+  }
+
+  .popup-bubble-gg-marker-container {
+    cursor: auto;
+    height: 0;
+    position: absolute;
+  }
+}

@@ -1,0 +1,11 @@
+.page-transition {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  z-index: -999;
+  opacity: 0;
+  background: $white;
+}

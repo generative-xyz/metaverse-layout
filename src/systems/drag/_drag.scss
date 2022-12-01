@@ -1,0 +1,12 @@
+.is-drag-handler {
+  touch-action: pan-y;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.is-trans {
+  will-change: transform;
+}

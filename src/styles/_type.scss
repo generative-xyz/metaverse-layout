@@ -1,0 +1,236 @@
+@use "sass:math" as math;
+
+h1, h2, h3, .h1, .h2, .h3, h4, .h4, h5, .h5 {
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+h1, .h1 {
+
+  line-height: 90%;
+  letter-spacing: -0.06em;
+  padding-right: em(20px, 118px);
+  padding-bottom: em(25px, 118px);
+  @include textLinear;
+  font-size: rem(56px);
+
+  @include tablet {
+    font-size: rem(80px)
+  }
+
+  @include pc {
+    font-size: rem(80px);
+  }
+
+  @include pcWide {
+    font-size: rem(118px);
+  }
+}
+
+h2, .h2 {
+  line-height: 112%;
+  padding-right: em(8px, 80px);
+  padding-bottom: em(8px, 80px);
+  @include textLinear;
+  font-size: rem(32px);
+
+  @include tablet {
+    font-size: rem(64px);
+  }
+
+  @include pc {
+    font-size: rem(56px);
+  }
+
+  @include pcWide {
+    font-size: rem(88px);
+  }
+}
+
+h3, .h3 {
+
+  line-height: 130%;
+  letter-spacing: -0.03em;
+  font-size: rem(24px);
+
+  @include tablet {
+    font-size: rem(32px);
+  }
+
+  @include pc {
+    font-size: rem(40px);
+  }
+
+  @include pcWide {
+    font-size: rem(56px);
+  }
+}
+
+h4, .h4 {
+  font-size: rem(40px);
+  line-height: 120%;
+}
+
+h5, .h5 {
+
+  line-height: 120%;
+  font-size: rem(18px);
+
+  @include tablet {
+    font-size: rem(20px);
+  }
+
+  @include pc {
+    font-size: rem(24px);
+  }
+
+  @include pcWide {
+    font-size: rem(32px);
+  }
+}
+
+h6, .h6 {
+  font-size: rem(24px);
+  line-height: 112%;
+  letter-spacing: -0.04em;
+}
+
+p {
+  margin-bottom: rem(35px);
+}
+
+.heading {
+
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+
+  &__supper {
+    font-size: rem(118px);
+    line-height: 90%;
+    letter-spacing: -0.06em;
+    @include textLinear;
+    padding-bottom: rem(25px);
+  }
+
+  &__large {
+    font-size: rem(88px);
+    line-height: 112%;
+    @include textLinear;
+  }
+
+  &__medium {
+    font-size: rem(56px);
+    line-height: 130%;
+    letter-spacing: -0.03em;
+  }
+
+  &__small {
+    font-size: rem(40px);
+    line-height: 120%;
+  }
+
+  &__light {
+    font-size: rem(32px);
+    line-height: 120%;
+  }
+
+}
+
+.desc {
+  font-style: normal;
+
+  &__supper {
+    font-weight: 700;
+    font-size: rem(40px);
+    line-height: 120%;
+    color: $dark;
+  }
+
+  &__large {
+    font-weight: 500;
+    font-size: rem(28px);
+    line-height: 150%;
+    letter-spacing: -0.02em;
+  }
+
+  &__medium {
+    font-weight: 500;
+    line-height: 130%;
+    letter-spacing: -0.03em;
+    font-size: rem(16px);
+
+    @include pc {
+      font-size: rem(20px);
+    }
+
+    @include pcWide {
+      font-size: rem(24px);
+    }
+  }
+
+  &__small {
+    font-weight: 700;
+    font-size: rem(14px);
+    line-height: math.div(19, 14);
+    letter-spacing: -0.02em;
+  }
+}
+
+
+.sub-caption {
+  font-style: italic;
+  font-weight: 450;
+  font-size: rem(20px);
+  line-height: math.div(28, 20);
+  color: $dark;
+}
+
+.main {
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+
+  line-height: 150%;
+  color: $tundora;
+  position: relative;
+  z-index: 1;
+  font-size: rem(12px);
+
+  @include tablet {
+    font-size: rem(14px);
+  }
+
+  @include pc {
+    font-size: 14px;
+  }
+
+  @include pcWide {
+    font-size: rem(16px);
+  }
+}
+
+.link_gradient {
+  font-weight: 700;
+  line-height: 150%;
+  @include textLinear;
+  position: relative;
+  font-size: rem(12px);
+  display: inline;
+
+  @include pc {
+    font-size: rem(16px);
+  }
+
+  @include pcWide {
+    font-size: rem(18px);
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    height: 1px;
+    background-image: linear-gradient(287.35deg, #1962FF 0%, #2495EA 42.87%, #31D6D0 94.91%);
+  }
+}

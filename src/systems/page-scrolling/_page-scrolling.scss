@@ -1,0 +1,75 @@
+//@import "node_modules/locomotive-scroll/src/locomotive-scroll";
+//
+//.c-scrollbar_thumb {
+//  border-radius: 0;
+//}
+//
+//[data-scroll-section] {
+//  will-change: transform;
+//}
+
+
+body {
+  //is_smooth-scroll-wheel
+  //&:not(.site__template-mobile) {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    .viewPointer {
+      position: fixed;
+      overflow: hidden;
+      height: 100vh;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    //}
+
+  }
+
+  //end is_smooth-scroll-wheel
+
+  // is_smooth_native
+
+  //overflow-y: scroll;
+  //
+  //&:not(.site__template-mobile) {
+  //  .viewPointer {
+  //    position: fixed;
+  //    overflow: hidden;
+  //    height: 100vh;
+  //    width: 100%;
+  //    top: 0;
+  //    left: 0;
+  //  }
+  //}
+  //
+  // is_smooth_native_end
+}
+
+[data-scroll-container] {
+  backface-visibility: hidden;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba($black, .2);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba($black, .5);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $black;
+}

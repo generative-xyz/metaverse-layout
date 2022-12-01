@@ -1,0 +1,154 @@
+@use "sass:math" as math;
+
+$font-family-sans-serif: $font-manrope, serif;
+$font-family-base: $font-family-sans-serif !default;
+
+$enable-grid-classes: true !default;
+$enable-pointer-cursor-for-buttons: true !default;
+$displays: none, inline, inline-block, block, table, table-row, table-cell, flex, inline-flex !default;
+
+$grid-columns: 12 !default;
+$grid-gutter-width: rem(32px) !default;
+$grid-row-columns: 6 !default;
+
+$font-weight-light: 300 !default;
+$font-weight-lighter: 400 !default;
+$font-weight-normal: 500 !default;
+$font-weight-bold: 700 !default;
+$emphasized-link-hover-darken-percentage: 15% !default;
+
+$black: #000000 !default;
+$white: #FFFFFF !default;
+
+$dark: #161616 !default;
+$tundora: #4E4E4E !default;
+$blue: #1962FF !default;
+$gray: #8A8A8A !default;
+$bd-line: #D7D7D7 !default;
+$silver: #BEBEBE !default;
+$bg-section: #F7F7F7 !default;
+$yellow: #F2C94C !default;
+$linear: linear-gradient(287.35deg, #1962FF 0%, #2495EA 42.87%, #31D6D0 94.91%) !default;
+
+$colors: (
+        "black": $black,
+        "white": $white,
+        "dark": $dark,
+        "tundora":$tundora,
+        "blue": $blue,
+        "gray": $gray,
+        "bd-line": $bd-line,
+        "silver": $silver,
+        "bg-section": $bg-section,
+        "yellow": $yellow
+) !default;
+$theme-colors: (
+        "black": $black,
+        "white": $white,
+        "dark": $dark,
+        "tundora":$tundora,
+        "blue": $blue,
+        "gray": $gray,
+        "bd-line": $bd-line,
+        "silver": $silver,
+        "bg-section": $bg-section,
+        "yellow": $yellow
+) !default;
+
+$enable-caret: true !default;
+$enable-rounded: true !default;
+$enable-shadows: false !default;
+$enable-gradients: false !default;
+$enable-transitions: true !default;
+$enable-prefers-reduced-motion-media-query: true !default;
+$enable-hover-media-query: false !default; // Deprecated, no longer affects any compiled CSS
+$enable-grid-classes: true !default;
+$enable-pointer-cursor-for-buttons: true !default;
+$enable-print-styles: true !default;
+$enable-responsive-font-sizes: false !default;
+$enable-validation-icons: true !default;
+$enable-deprecation-messages: true !default;
+$text-muted: #f8f8f8 !default;
+
+$grid-breakpoints: (
+        xs: 0,
+        sm: 768px,
+        md: 1024px,
+        lg: 1200px,
+        xl: 1400px,
+        xxl: 1690px,
+) !default;
+
+$container-max-widths: (
+        sm: 100%,
+        md: 100%,
+        lg: 100%,
+        xl: 100%,
+        xxl: 100%,
+) !default;
+
+
+$spacer: 1rem !default;
+$spacers: (
+        0: 0,
+        1: rem(16px),
+        2: rem(32px),
+        3: rem(40px),
+        4: rem(50px),
+        5: rem(60px),
+        6: rem(80px),
+        7: rem(100px),
+        9: rem(120px),
+        10: rem(140px),
+) !default;
+
+$font-size-base: rem(16px) !default;
+$font-weight-base: 300 !default;
+$line-height-base:  math.div(30, 20) !default;
+$body-color: $dark !default;
+$body-bg: $white !default;
+
+$headings-margin-bottom: rem(30px) !default;
+$paragraph-margin-bottom: rem(30px) !default;
+
+$dt-font-weight: 500 !default;
+$font-weight-bolder: 700 !default;
+
+$link-color: $dark !default;
+$link-decoration: underline !default;
+
+$link-hover-color: $dark !default;
+$link-hover-decoration: underline !default;
+
+$table-cell-padding: .75rem !default;
+$table-cell-padding-sm: .3rem !default;
+$table-caption-color: #6c757d !default;
+$table-th-font-weight: null !default;
+
+$label-margin-bottom: rem(15px) !default;
+
+$easeOutQuart: cubic-bezier(0.165, 0.84, 0.44, 1);
+$easeInOutCubic: cubic-bezier(0.65, 0, 0.35, 1);
+@include color-classes($colors);
+
+//ht extends
+$autofill-color: $dark;
+$autofill-shadow: $white;
+
+$loading-page-bg: $white;
+$bg-alert-success: green;
+$color-alert-success: $white;
+
+$bg-alert-fail: red;
+$color-alert-fail: $white;
+
+$bg-select-dropdown: $white;
+$active-select-dropdown-item: #F9F8FC;
+
+$bg-popup-main-rollback: rgba($black, .8);
+
+$bg-layout-resize: $white;
+$text-layout-resize: $black;
+
+
+

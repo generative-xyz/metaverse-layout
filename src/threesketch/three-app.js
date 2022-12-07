@@ -125,7 +125,7 @@ export class ThreeApp {
     //   this.scene.add(this.meshes[i])
     // }
     this.startTime = Date.now()
-    this.lastTime = Date.now()
+    this.lastTime = ssDate.now()
   }
 
   initLight() {

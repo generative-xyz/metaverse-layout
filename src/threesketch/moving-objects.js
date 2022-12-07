@@ -114,7 +114,7 @@ export class GravityMovingSystem {
       dz.push(this.movingObjects[i].vz * dt)
       // calculate f
       for (int j = 0; j < this.numMovingObjects; j++) {
-        if (this.movingObjects[j])
+        
       }
     }
   }

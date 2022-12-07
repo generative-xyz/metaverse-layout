@@ -82,46 +82,46 @@ export class ODEObjectSystem {
 
 const MIN_DIS = 0.0003
 
-export class GravityMovingSystem {
-  constructor() {}
+// export class GravityMovingSystem {
+//   constructor() {}
 
-  init(numMovingObjects) {
-    this.numMovingObjects = numMovingObjects
-    this.movingObjects = []
-    for (let i = 0; i < numMovingObjects; i++) {
-      const x = rand(-1, 1)
-      const y = rand(-1, 1)
-      const z = rand(-1, 1)
-      const vx = rand(-0.2, 0.2)
-      const vy = rand(-0.2, 0.2)
-      const vz = rand(-0.2, 0.2)
-      const m = rand(0.05, 0.2)
-      this.movingObjects.push(new GravityMovingObject(x, y, z, vx, vy, vz, m))
-    }
-  }
+//   init(numMovingObjects) {
+//     this.numMovingObjects = numMovingObjects
+//     this.movingObjects = []
+//     for (let i = 0; i < numMovingObjects; i++) {
+//       const x = rand(-1, 1)
+//       const y = rand(-1, 1)
+//       const z = rand(-1, 1)
+//       const vx = rand(-0.2, 0.2)
+//       const vy = rand(-0.2, 0.2)
+//       const vz = rand(-0.2, 0.2)
+//       const m = rand(0.05, 0.2)
+//       this.movingObjects.push(new GravityMovingObject(x, y, z, vx, vy, vz, m))
+//     }
+//   }
 
-  update() {
-    const dx = [],
-      dy = [],
-      dz = [],
-      dvx = [],
-      dvy = [],
-      dvz = []
-    for (let i = 0; i < this.numMovingObjects; i++) {
-      
-      dx.push(this.movingObjects[i].vx * dt)
-      dy.push(this.movingObjects[i].vy * dt)
-      dz.push(this.movingObjects[i].vz * dt)
-      // calculate f
-      for (int j = 0; j < this.numMovingObjects; j++) {
-        
-      }
-    }
-  }
-}
+//   update() {
+//     const dx = [],
+//       dy = [],
+//       dz = [],
+//       dvx = [],
+//       dvy = [],
+//       dvz = []
+//     for (let i = 0; i < this.numMovingObjects; i++) {
+
+//       dx.push(this.movingObjects[i].vx * dt)
+//       dy.push(this.movingObjects[i].vy * dt)
+//       dz.push(this.movingObjects[i].vz * dt)
+//       // calculate f
+//       for (int j = 0; j < this.numMovingObjects; j++) {
+
+//       }
+//     }
+//   }
+// }
 
 class GravityMovingObject {
-  constructor(x, y, z, vx, vy, vx, m) {
+  constructor(x, y, z, vx, vy, vz, m) {
     this.x = x
     this.y = y
     this.z = z

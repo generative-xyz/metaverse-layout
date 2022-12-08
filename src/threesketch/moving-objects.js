@@ -116,9 +116,10 @@ export class GravityMovingSystem {
     this.numMovingObjects = numMovingObjects
     this.movingObjects = []
     for (let i = 0; i < numMovingObjects; i++) {
-      const p = Vector3.rand(-1.5, 1.5)
-      const v = Vector3.rand(-0.2, 0.2)
-      const m = rand(1e7, 5e7)
+      let p = Vector3.rand(-1, 1)
+      let v = Vector3.rand(-0.1, 0.1)
+      let m = rand(1e7, 5e7)
+      if (i == 0) (m = 1e10), (p = Vector3.rand(0, 0)), (v = Vector3.rand(0, 0))
       this.movingObjects.push(new GravityMovingObject(p, v, m))
     }
     this.startTime = Date.now()
@@ -129,17 +130,23 @@ export class GravityMovingSystem {
   getGravityForce(a, b) {
     // f = ab * m_a * m_b / |ab|^3 where ab = p_a - p_b
     let vec_ab = Vector3.sub(b.p, a.p)
-    return Vector3.mul(vec_ab, G * a.m * b.m / (Math.pow(vec_ab.length(), 3) + EPSILON))
+    return Vector3.mul(
+      vec_ab,
+      (G * a.m * b.m) / (Math.pow(vec_ab.length(), 3) + EPSILON),
+    )
   }
 
   update() {
     // calculate gravitational force
-    for (let i = 0; i < this.numMovingObjects; i++) {
+    for (let i = 1; i < this.numMovingObjects; i++) {
+      let vec_f = new Vector3(0, 0, 0)
       for (let j = 0; j < this.numMovingObjects; j++) {
         if (i == j) continue
-        let vec_f = this.getGravityForce(this.movingObjects[i], this.movingObjects[j])
-        this.movingObjects[i].applyForce(vec_f)
+        vec_f.add(
+          this.getGravityForce(this.movingObjects[i], this.movingObjects[j]),
+        )
       }
+      this.movingObjects[i].setForce(vec_f)
     }
 
     // timeleap system
@@ -163,9 +170,9 @@ class GravityMovingObject {
     this.deleted = false
   }
 
-  applyForce(f) {
+  setForce(f) {
     // a = f/m
-    this.a.add(Vector3.div(f, this.m))
+    this.a = Vector3.div(f, this.m)
   }
 
   update(dt) {
@@ -174,7 +181,6 @@ class GravityMovingObject {
     // a = 0
     this.v.add(Vector3.mul(this.a, dt))
     this.p.add(Vector3.mul(this.v, dt))
-    this.a = Vector3.zero()
   }
 
   getPos() {

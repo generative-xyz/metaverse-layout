@@ -31,7 +31,7 @@ import { GravityMovingSystem } from './moving-objects'
 import Stats from 'three/examples/jsm/libs/stats.module'
 
 const W = 100 / 100
-const NUM_ROCKS = 200
+const NUM_ROCKS = 500
 
 function rand(l, r) {
   return Math.random() * (r - l) + l
@@ -103,9 +103,10 @@ export class ThreeApp {
       this.meshes[i].position.x = x
       this.meshes[i].position.y = y
       this.meshes[i].position.z = z
-      mesh.scale.x = mesh.scale.y = mesh.scale.z = rand(0.01, 0.05)
+      mesh.scale.x = mesh.scale.y = mesh.scale.z = rand(0.1, 0.2)
       this.scene.add(this.meshes[i])
     }
+    this.meshes[0].scale.x = this.meshes[0].scale.y = this.meshes[0].scale.z = 0.4
 
     this.startTime = Date.now()
     this.lastTime = Date.now()

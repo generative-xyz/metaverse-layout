@@ -17,25 +17,21 @@ import {
   PointLight,
   HemisphereLight,
   DirectionalLight,
-  CubeCamera,
-  WebGLCubeRenderTarget,
-  BoxGeometry,
   Mesh,
-  MeshBasicMaterial,
   sRGBEncoding,
   SphereGeometry,
   MeshStandardMaterial,
-  DirectionalLightHelper,
+  Vector3,
 } from 'three'
 
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
-import { genODEMovingObjects, ODEObjectSystem } from './moving-objects'
+import { GravityMovingSystem } from './moving-objects'
 
 import Stats from 'three/examples/jsm/libs/stats.module'
 
 const W = 100 / 100
-const NUM_ROCKS = 5000
+const NUM_ROCKS = 200
 
 function rand(l, r) {
   return Math.random() * (r - l) + l
@@ -95,7 +91,7 @@ export class ThreeApp {
     const geo = new SphereGeometry(0.1, 32, 16)
     const mat = new MeshStandardMaterial({ color: 0xffffff })
 
-    this.movingSystems = new ODEObjectSystem()
+    this.movingSystems = new GravityMovingSystem()
     this.movingSystems.init(NUM_ROCKS)
 
     this.meshes = []
@@ -111,19 +107,6 @@ export class ThreeApp {
       this.scene.add(this.meshes[i])
     }
 
-    // this.movingObjects = genODEMovingObjects(NUM_ROCKS)
-    // this.meshes = []
-    // for (let i = 0; i < NUM_ROCKS; i++) {
-    //   const { x, y, z } = this.movingObjects[i]
-    //   console.log(x, y, z)
-    //   const mesh = new Mesh(geo, mat)
-    //   this.meshes.push(mesh)
-    //   this.meshes[i].position.x = x * W
-    //   this.meshes[i].position.y = y * W
-    //   this.meshes[i].position.z = z * W
-    //   mesh.scale.x = mesh.scale.y = mesh.scale.z = rand(0.01, 0.05)
-    //   this.scene.add(this.meshes[i])
-    // }
     this.startTime = Date.now()
     this.lastTime = Date.now()
   }
@@ -178,15 +161,6 @@ export class ThreeApp {
       this.meshes[i].position.y = y * W
       this.meshes[i].position.z = z * W
     }
-
-    // for (let i = 0; i < this.movingObjects.length; i++) {
-    //   let dt = (curTime - this.lastTime) / 500
-    //   if (dt > 0.02) dt = 0.02
-    //   const { x, y, z } = this.movingObjects[i].getPos(dt, true)
-    //   this.meshes[i].position.x = x * W
-    //   this.meshes[i].position.y = y * W
-    //   this.meshes[i].position.z = z * W
-    // }
 
     this.controls.update()
 

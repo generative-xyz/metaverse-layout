@@ -31,6 +31,8 @@ import Stats from "three/examples/jsm/libs/stats.module";
 
 const W = 100 / 100;
 const NUM_ROCKS = 300;
+const SPEED = 1;
+const MERGE_ON_IMPACT = true;
 
 function rand(l, r) {
   return Math.random() * (r - l) + l;
@@ -91,7 +93,7 @@ export class ThreeApp {
     const mat = new MeshStandardMaterial({ color: 0xffffff });
 
     this.movingSystems = new GravityMovingSystem();
-    this.movingSystems.init(NUM_ROCKS);
+    this.movingSystems.init(NUM_ROCKS, SPEED, MERGE_ON_IMPACT);
 
     this.meshes = [];
 

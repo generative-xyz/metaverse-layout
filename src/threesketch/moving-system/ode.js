@@ -74,7 +74,7 @@ export class ODEObjectSystem {
     const curTime = Date.now();
     for (let i = 0; i < this.numMovingObjects; i++) {
       let dt = (curTime - this.lastTime) / 500;
-      if (dt > 0.002) dt = 0.02;
+      if (dt > 0.02) dt = 0.02;
       this.movingObjects[i].updatePos(dt, true);
     }
 

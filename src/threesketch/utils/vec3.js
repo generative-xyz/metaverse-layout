@@ -33,8 +33,6 @@ export class Vec3 {
 
   length = () => Math.hypot(this.x, this.y, this.z);
 
-  toString = () => `(${this.x}, ${this.y}, ${this.z})`;
-
   static zero = () => new Vec3(0, 0, 0);
   static rand = (l, r) =>
     new Vec3(randFloat(l, r), randFloat(l, r), randFloat(l, r));

@@ -7,8 +7,11 @@ const G = 6.6743e-11;
 export class GravityMovingSystem {
   constructor() {}
 
-  init(numMovingObjects) {
+  init(numMovingObjects, speed, mergeOnImpact) {
     this.numMovingObjects = numMovingObjects;
+    this.speed = speed;
+    this.mergeOnImpact = mergeOnImpact;
+
     this.movingObjects = [];
     for (let i = 0; i < numMovingObjects; i++) {
       let p = Vec3.rand(-1, 1);
@@ -49,15 +52,11 @@ export class GravityMovingSystem {
     }
 
     // timeleap system
-
-    const magic = 500 * 20;
     const curTime = Date.now();
-    for (let iter = 0; iter < 20; ++iter) {
-      for (let i = 0; i < this.numMovingObjects; i++) {
-        let dt = (curTime - this.lastTime) / magic;
-        if (dt > 10.0 / magic) dt = 10.0 / magic;
-        this.movingObjects[i].update(dt);
-      }
+    for (let i = 0; i < this.numMovingObjects; i++) {
+      let dt = (curTime - this.lastTime) / 1000;
+      if (dt > 0.02) dt = 0.02;
+      this.movingObjects[i].update(dt * this.speed);
     }
 
     this.lastTime = curTime;

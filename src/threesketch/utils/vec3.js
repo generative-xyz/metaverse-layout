@@ -25,6 +25,12 @@ export class Vec3 {
     this.z *= k;
   }
 
+  mulVec(v) {
+    this.x *= v.x;
+    this.y *= v.y;
+    this.z *= v.z;
+  }
+
   div(k) {
     this.x /= 1.0 * k;
     this.y /= 1.0 * k;
@@ -39,6 +45,7 @@ export class Vec3 {
 
   static add = (a, b) => new Vec3(a.x + b.x, a.y + b.y, a.z + b.z);
   static sub = (a, b) => new Vec3(a.x - b.x, a.y - b.y, a.z - b.z);
+  static mulVec = (a, b) => new Vec3(a.x * b.x, a.y * b.y, a.z * b.z);
   static mul = (a, k) => new Vec3(a.x * k, a.y * k, a.z * k);
   static div = (a, k) => new Vec3(a.x / k, a.y / k, a.z / k);
 }

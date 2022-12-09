@@ -1,5 +1,5 @@
 import { rand } from "@ThreeSketch/utils/rand";
-import { Vec3 } from "@/threesketch/utils/vec3";
+import { Vec3 } from "@ThreeSketch/utils/vec3";
 
 const EPSILON = 1e-9;
 const G = 6.6743e-11;
@@ -58,8 +58,18 @@ export class GravityMovingSystem {
       if (dt > 0.02) dt = 0.02;
       this.movingObjects[i].update(dt * this.speed);
     }
-
     this.lastTime = curTime;
+
+    // merge colliding object
+    for (let i = 0; i < this.numMovingObjects; i++) {
+      for (let j = i + 1; j < this.numMovingObjects; j++) {
+        if (this.movingObjects[i].isCollidedWith(this.movingObjects[j])) {
+          this.movingObjects[i].merge(this.movingObjects[j]);
+          this.movingObjects.splice(j, 1);
+          --j;
+        }
+      }
+    }
   }
 }
 
@@ -75,6 +85,28 @@ class GravityMovingObject {
   updateMass(m) {
     this.m = m;
     this.r = Math.pow(this.m, 1.0 / 3) / 1000;
+  }
+
+  isCollidedWith(other) {
+    return Vec3.sub(this.p, other.p).length() <= this.r + other.r;
+  }
+
+  // merge other into this
+  merge(other) {
+    // position: copy more massive object
+    this.p = this.m > other.m ? this.p : other.p;
+
+    // conservation of momentum: m1 * v1 + m2 * v2 = M * V
+    let M = this.m + other.m;
+    let totMomentum = Vec3.add(
+      Vec3.mul(this.v, this.m),
+      Vec3.mul(other.v, other.m)
+    );
+    this.v = Vec3.div(totMomentum, M);
+
+    this.updateMass(M);
+
+    other.deleted = true;
   }
 
   setForce(f) {

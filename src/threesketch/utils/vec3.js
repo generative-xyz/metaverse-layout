@@ -1,6 +1,6 @@
 import { randFloat } from "three/src/math/MathUtils";
 
-export class Vector3 {
+export class Vec3 {
   constructor(x, y, z) {
     this.x = x;
     this.y = y;
@@ -35,12 +35,12 @@ export class Vector3 {
 
   toString = () => `(${this.x}, ${this.y}, ${this.z})`;
 
-  static zero = () => new Vector3(0, 0, 0);
+  static zero = () => new Vec3(0, 0, 0);
   static rand = (l, r) =>
-    new Vector3(randFloat(l, r), randFloat(l, r), randFloat(l, r));
+    new Vec3(randFloat(l, r), randFloat(l, r), randFloat(l, r));
 
-  static add = (a, b) => new Vector3(a.x + b.x, a.y + b.y, a.z + b.z);
-  static sub = (a, b) => new Vector3(a.x - b.x, a.y - b.y, a.z - b.z);
-  static mul = (a, k) => new Vector3(a.x * k, a.y * k, a.z * k);
-  static div = (a, k) => new Vector3(a.x / k, a.y / k, a.z / k);
+  static add = (a, b) => new Vec3(a.x + b.x, a.y + b.y, a.z + b.z);
+  static sub = (a, b) => new Vec3(a.x - b.x, a.y - b.y, a.z - b.z);
+  static mul = (a, k) => new Vec3(a.x * k, a.y * k, a.z * k);
+  static div = (a, k) => new Vec3(a.x / k, a.y / k, a.z / k);
 }

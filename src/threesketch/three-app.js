@@ -21,12 +21,11 @@ import {
   sRGBEncoding,
   SphereGeometry,
   MeshStandardMaterial,
-  Vector3,
 } from "three";
 
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
-import { GravityMovingSystem } from "./moving-objects";
+import { GravityMovingSystem } from "./moving-system/gravity";
 
 import Stats from "three/examples/jsm/libs/stats.module";
 
